@@ -12,4 +12,4 @@ ENV MSSQL_SA_PASSWORD=admin@2019
 ENV ACCEPT_EULA=Y
 
 # run initial scripts
-RUN /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'admin@2019' -i /opt/mssql-scripts/000_create_db.sql
+RUN /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'admin@2019' -i /opt/mssql-scripts/Country.sql
