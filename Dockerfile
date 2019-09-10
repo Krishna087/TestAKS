@@ -12,4 +12,7 @@ ENV MSSQL_SA_PASSWORD=admin@2019
 ENV ACCEPT_EULA=Y
 
 # run initial scripts
-RUN /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'admin@2019' -i /opt/mssql-scripts/Country.sql
+RUN ( /opt/mssql/bin/sqlservr --accept-eula & ) | grep -q "Service Broker manager has started" \
+    && /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'admin@2019' -i /opt/mssql-scripts/Country.sql \
+    && pkill sqlservr 
+# RUN /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'admin@2019' -i /opt/mssql-scripts/Country.sql
