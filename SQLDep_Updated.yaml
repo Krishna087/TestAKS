@@ -15,16 +15,7 @@ spec:
         image: aksacr087.azurecr.io/aks:#{Build.BuildId}#
         ports:
         - containerPort: 1433
-        env:
-        - name: MSSQL_PID
-          value: "Developer"
-        - name: ACCEPT_EULA
-          value: "Y"
-        - name: MSSQL_SA_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mssql
-              key: SA_PASSWORD 
+       
         volumeMounts:
         - name: mssqldb
           mountPath: /var/opt/mssql
