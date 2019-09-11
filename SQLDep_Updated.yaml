@@ -12,7 +12,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: mssql
-        image: aksacr087.azurecr.io/aks:34
+        image: aksacr087.azurecr.io/aks:#{Build.BuildId}#
         ports:
         - containerPort: 1433
         env:
