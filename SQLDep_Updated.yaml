@@ -16,13 +16,6 @@ spec:
         ports:
         - containerPort: 1433
        
-        volumeMounts:
-        - name: mssqldb
-          mountPath: /var/opt/mssql
-      volumes:
-      - name: mssqldb
-        persistentVolumeClaim:
-          claimName: mssql-data
 ---
 apiVersion: v1
 kind: Service
